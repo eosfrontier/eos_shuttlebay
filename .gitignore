@@ -1,0 +1,8 @@
+# Don't track content of these folders and files
+_old/
+includes/classes/class.db.php
+includes/classes/_class.db.php
+.htaccess
+images/mugs.old/
+images/rik.jpg
+images/elmar.jpg

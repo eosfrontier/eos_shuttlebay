@@ -2,9 +2,9 @@
 include ('includes/include.php');
 $post = 0;
 if (isset($_GET["id"])) {
-    $cDouane = new douane();
+    $cShuttlebay = new shuttlebay();
     $sId = $_GET["id"];
-    $aRes = $cDouane->getEditById($sId);
+    $aRes = $cShuttlebay->getEditById($sId);
     if ($aRes != "empty") {
         $post = 1;
         if (isset($aRes[2])) {

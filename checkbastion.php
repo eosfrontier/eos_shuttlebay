@@ -1,8 +1,8 @@
 <?php
     include('includes/include.php');
 
-    $cDouane = new douane();
-    $aPersonals = $cDouane->getAllPersonal();
+    $cShuttlebay = new shuttlebay();
+    $aPersonals = $cShuttlebay->getAllPersonal();
 
 ?>
 

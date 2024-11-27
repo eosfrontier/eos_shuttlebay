@@ -1,9 +1,10 @@
 <?php
 
-if ($_SERVER["REMOTE_ADDR"] == "94.208.177.161") {
+// if ($_SERVER["REMOTE_ADDR"] == "94.208.177.161") {
     error_reporting(E_ALL);
     ini_set('display_errors', 1);
-}
+// }
+
 
 spl_autoload_register(function($classname) {
     include 'classes/class.' . $classname . '.php';
@@ -23,3 +24,5 @@ if (!function_exists('str_contains')) {
         return (strpos($haystack, $needle) !== false);
     }
 }
+$cShuttles = new shuttlebay();
+$ICDateString = $cShuttles->getICDate();

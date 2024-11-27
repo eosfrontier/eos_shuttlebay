@@ -1,15 +1,15 @@
 <?php
     include('includes/include.php');
-    $cDouane = new douane();
+    $cShuttlebay = new shuttlebay();
 
     switch($_POST["xf"]){
         case "checkin":
-            $result = $cDouane->checkIn($_POST);
+            $result = $cShuttlebay->checkIn($_POST);
             echo $result;
             //var_dump($result);
             break;
         case "editCharacter":
-            $result = $cDouane->editCharacter($_POST);
+            $result = $cShuttlebay->editCharacter($_POST);
             echo $result;
             //var_dump($result);
             break;

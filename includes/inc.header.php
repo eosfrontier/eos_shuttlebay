@@ -29,15 +29,15 @@
             <nav>
                 <ul>
                     <li>
-                        <a href="checkinout.php">
-                            <i class="fas fa-sign-in-alt"></i> Initiate launch procedure
+                        <a href="checkout.php">
+                            <i class="fas fa-sign-in-alt"></i> Check-Out Shuttle
                         </a>
                     </li>
-                    <!-- <li>
-                        <a href="checkbastion.php">
-                            <i class="fas fa-clipboard-check"></i> Check Bastion
+                    <li>
+                        <a href="checkin.php">
+                            <i class="fas fa-sign-in-alt"></i> Check-In Shuttle
                         </a>
-                    </li> -->
+                    </li>
                     <li>
                         <a href="check.php">
                             <i class="fas fa-user-check"></i> Check Shuttle Status

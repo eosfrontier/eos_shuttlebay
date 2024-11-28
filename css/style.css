@@ -36,8 +36,10 @@ body {
     letter-spacing: 0.04em;
 }
 
-input {
+input, textarea{
     font-family: 'Orbitron', sans-serif;
+    background-color: #000;
+    color: white;
 }
 
 #moving-background {
@@ -196,7 +198,7 @@ header nav ul li a i {
     float: left;
     width: 300px;
     display: grid;
-    justify-content: center;
+    justify-content: right;
     align-content: center;
     justify-items: center;
 }
@@ -207,6 +209,13 @@ header nav ul li a i {
 
 img.portrait {
     max-height: 200px;
+    width: auto;
+    border: solid 2px #fff;
+    /* align-items: center; */
+}
+
+img.ship-image {
+    max-height: 118px;
     width: auto;
     border: solid 2px #fff;
     /* align-items: center; */
@@ -480,4 +489,21 @@ input[type=radio]+label:before {
 
 input[type=checkbox]+label:before {
     border-radius: 2px;
+}
+
+table.shuttle-status-board {
+    border: none;
+    border-collapse: collapse;
+}
+table.shuttle-status-board td {
+    border-left: 1px solid #fff;
+    vertical-align: top;
+    padding: 10px;
+}
+table.shuttle-status-board td:first-child {
+    border-left: none;
+}
+
+table.shuttle-button td {
+    border-left: none;
 }

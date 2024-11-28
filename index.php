@@ -1,6 +1,7 @@
 <?php
     require 'vendor/autoload.php';
     include('includes/include.php');
+    include('includes/functions.php');
 ?>
     <?php
         include('includes/inc.header.php');

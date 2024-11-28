@@ -50,7 +50,14 @@ include ('includes/inc.header.php');
                 }
                 ?>
                 <div class = "shuttle-list">
-                <?php include('partials/shuttles.php'); ?>
+                <?php 
+                if ($cShuttles->checkPilotLicense($aRes[1]["characterID"])){
+                include('partials/shuttles-available.php'); }
+                else{
+                    echo '<h3 style="color:red;">AUTHORIZATION DENIED:</h3>
+                    <h4 style="color:red;">Only licensed pilots may access a shuttle.</h4>';
+                }
+                ?>
                 </div>
                 <?php if (isset($_POST["chosen_shuttle"])){ ?>
                 <form class="checking-form">

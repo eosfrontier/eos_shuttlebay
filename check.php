@@ -5,7 +5,7 @@ include ('includes/inc.header.php');
 ?>
 <div id="main">
     <div class="container">
-    <?php include("partials/shuttles.php"); ?>
+    <?php include("partials/shuttles-all.php"); ?>
     </div>
     <div class="clear">
 

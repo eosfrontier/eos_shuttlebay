@@ -1,5 +1,8 @@
 <?php
-function displayShuttles($array){
+
+function displayShuttles($array, $disabled = NULL){
+    
+    $current_url = $_SERVER['REQUEST_URI'];
     foreach ($array as $shuttle){
         if ($shuttle['operable'] = 1){
             $buttonClass="good";
@@ -11,9 +14,9 @@ function displayShuttles($array){
             $buttonClass = "error";
         }
         ?>
-        <form action="" method="post">
+        <form action="<?php echo $current_url; ?>" method="post">
             <input type="hidden" name="id" value="<?php echo $_POST["id"]; ?>" />
-        <button name="selected_shuttle" value="<?php echo $shuttle['id']; ?>" class='button--shuttle <?php echo $buttonClass; ?>'>
+        <button name="selected_shuttle" value="<?php echo $shuttle['id']; ?>" class='button--shuttle <?php echo $buttonClass; ?>' <?php if ($disabled == "disabled"){ echo "disabled style='pointer-events: none;'";} ?>>
         <table>
             <tr>
         <?php
@@ -28,7 +31,7 @@ function displayShuttles($array){
         echo $shuttle['type'] . "<br>";
         echo $shuttle['capacity'] . "👤<br>";
         echo $shuttle['base'] . "<br>";
-        echo $shuttle['status'] . "<br>";
+        echo $shuttle['status_name'] . "<br>";
         ?>
                 </td>
             </tr>

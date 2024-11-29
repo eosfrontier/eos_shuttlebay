@@ -3,18 +3,21 @@ require 'vendor/autoload.php';
 include ('includes/include.php');
 include('includes/functions.php');
 
-$shuttles = $cShuttles->getAllShuttles();
 
+$shuttles = $cShuttles->getAllShuttles();
+if(isset($_POST["selected_shuttle"])){
+    $selectedShuttle = $cShuttles->getShuttle($_POST['selected_shuttle']);
+    $sImage = "./images/shuttles/" . $selectedShuttle[0]['class_id'] . ".jpg";
+}
 $post = 0;
 $cShuttlebay = new shuttlebay();
 if (isset($_POST["id"])) {
     $sId = $_POST["id"];
-    $aRes = $cShuttlebay->getChecking($sId);
+    $aRes = $cShuttlebay->getCharacter($sId);
     if ($aRes != "empty") {
         $post = 1;
-        if (isset($aRes[2])) {
-            $travels = $aRes[2];
-        }
+    $pilotLicense = $cShuttles->checkPilotLicense($aRes["characterID"]);
+    $combatRated = $cShuttles->checkCombatPilot($aRes["characterID"]);
     }
 }
 

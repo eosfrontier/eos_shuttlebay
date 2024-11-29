@@ -5,11 +5,11 @@ $post = 0;
 if (isset($_POST["id"])) {
     $cShuttlebay = new shuttlebay();
     $sId = $_POST["id"];
-    $aRes = $cShuttlebay->getChecking($sId);
+    $aRes = $cShuttlebay->getCharacter($sId);
     if ($aRes != "empty") {
         $post = 1;
-        if (isset($aRes[2])) {
-            $travels = $aRes[2];
+        if (isset($aRes)) {
+            $travels = $aRes;
         }
     }
 
@@ -39,7 +39,7 @@ include ('includes/inc.header.php');
         <?php if ($post == 1) { ?>
             <div class="checkinout-left">
                 <?php
-                if ($aRes[0]["access"] == 0) {
+                if ($aRes["access"] == 0) {
                     $value = "Check in";
                     $access = "1";
                     $success = "Checked in";
@@ -51,7 +51,7 @@ include ('includes/inc.header.php');
                 ?>
                 <div class = "shuttle-list">
                 <?php 
-                if ($cShuttles->checkPilotLicense($aRes[1]["characterID"])){
+                if ($cShuttles->checkPilotLicense($aRes["characterID"])){
                 include('partials/shuttles-available.php'); }
                 else{
                     echo '<h3 style="color:red;">AUTHORIZATION DENIED:</h3>
@@ -69,13 +69,13 @@ include ('includes/inc.header.php');
                     <textarea name="reason" autofocus></textarea><br />
                     <label>Notes</label><br />
                     <textarea name="note"></textarea><br />
-                    <input type="hidden" name="character_id" value="<?php echo $aRes[1]["characterID"]; ?>" />
+                    <input type="hidden" name="character_id" value="<?php echo $aRes["characterID"]; ?>" />
                     <input type="hidden" name="access" value="<?php echo $access; ?>" />
                     <input type="hidden" name="xf" value="checkin" />
                     <input type="submit" class="checkinout-button" value="<?php echo $value; ?>" />
                 </form>
                 <div class="checking-success">
-                    <strong><?php echo $aRes[1]["character_name"] ?> has been <?php echo $success; ?>.</strong><br />
+                    <strong><?php echo $aRes["character_name"] ?> has been <?php echo $success; ?>.</strong><br />
                     Returning to scanner in 3 seconds.
                 </div>
                 <?php } ?>
@@ -84,11 +84,11 @@ include ('includes/inc.header.php');
 
                 <div class="check-image">
                     <?php
-                    $status = $aRes[1]["status"];
+                    $status = $aRes["status"];
                     if (str_contains($status, "figu")) {
-                        $sImage = "./images/mugs/npc/" . $aRes[1]["figu_accountID"] . ".jpg";
+                        $sImage = "./images/mugs/npc/" . $aRes["figu_accountID"] . ".jpg";
                     } else {
-                        $sImage = "./images/mugs/" . $aRes[1]["characterID"] . ".jpg";
+                        $sImage = "./images/mugs/" . $aRes["characterID"] . ".jpg";
                     }
                     if (file_exists($sImage)) {
                         echo '<img class="portrait" src="' . $sImage . '" />';
@@ -96,7 +96,7 @@ include ('includes/inc.header.php');
                         <img class="portrait" src="./images/pending.png" />
                     <?php } ?>
 
-                    <img class="faction-logo" src="./images/logos/<?php echo $aRes[1]["faction"] ?>.png" />
+                    <img class="faction-logo" src="./images/logos/<?php echo $aRes["faction"] ?>.png" />
                 </div>
                 <?php include('partials/check-right.php'); ?>
             </div>

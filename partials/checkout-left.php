@@ -1,19 +1,26 @@
 <div class="checkinout-left">
                 <?php
-                if ($aRes[0]["access"] == 0) {
+                if (isset($selectedShuttle)){
+                    if ($selectedShuttle[0]['status'] == 0) {
+                        $value = "Check out";
+                        $status = "2";
+                        $success = "checked out shuttle succcessfully";
+                    }
+                else if ($selectedShuttle[0]['status'] == 2) {
                     $value = "Check in";
-                    $access = "1";
+                    $status = "2";
                     $success = "Checked in";
-                } else {
-                    $value = "Check out";
-                    $access = "0";
-                    $success = "Checked out";
+                } elseif ($selectedShuttle[0]['status'] == 3) {
+                    $value = "Mark Post-Flight Checks as complete";
+                    $status = "3";
+                    $success = "completed post-flight checks";
                 }
+            }
                 ?>
                 <div class = "shuttle-list">
                 <?php
                 if (!isset($_POST["selected_shuttle"])){
-                    if ($cShuttles->checkPilotLicense($aRes[1]["characterID"])){
+                    if ($pilotLicense){
                     include('partials/shuttles-available.php'); }
                     else{
                         echo '<h3 style="color:red;">AUTHORIZATION DENIED:</h3>

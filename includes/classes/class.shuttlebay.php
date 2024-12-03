@@ -124,7 +124,14 @@ class shuttlebay
     }
 
     public function getShuttleLogs() {
-        $sql = "SELECT * FROM ecc_characters WHERE characterID = ;";
+        $sql = <<<SQL
+        SELECT s.name as shuttle_name, stat.`status`, l.comment, l.ic_date, l.ic_time, cl.character_name as status_updated_by, l.mission_name, cl.character_name as mission_leader FROM esb_shuttle_log l
+        JOIN esb_shuttles s ON s.id = l.shuttleID
+        JOIN esb_shuttle_status stat ON stat.id = l.`status`
+        JOIN ecc_characters cs ON cs.characterID = l.status_updated_by
+        JOIN ecc_characters cl ON cl.characterID = l.mission_leader
+        ORDER BY status_date_oc DESC;
+        SQL;
         $res = $this->runQuery($sql);
         return $res;
     }

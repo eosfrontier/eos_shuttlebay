@@ -43,6 +43,11 @@
                             <i class="fas fa-user-check"></i> Check Shuttle Status
                         </a>
                     </li>
+                    <li>
+                        <a href="shuttle_logs.php">
+                            <i class="fas fa-book"></i> Check Shuttle Logs
+                        </a>
+                    </li>
                 </ul>
             </nav>
         </div>

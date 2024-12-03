@@ -37,7 +37,8 @@
     <?php } else { 
         $missionLeader = $cShuttles->getCharacterByID($currentMission[0]["mission_leader"]);
         ?>
-    <input type="text" required name="mission_leader" value="<?php echo $missionLeader[0]["character_name"]; ?>" readonly="readonly"/><br />
+    <input type="text" required name="mission_leader" value="<?php echo $missionLeader[0]["character_name"]; ?>" readonly="readonly" disabled/><br />
+    <input type="hidden" required name="mission_leader" value="<?php echo $currentMission[0]["mission_leader"]; ?>" readonly="readonly"/><br />
     <?php } ?>
     <label>Comment</label><br />
     <textarea name="comment"></textarea><br />

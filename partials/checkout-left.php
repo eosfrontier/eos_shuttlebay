@@ -8,7 +8,7 @@
                     }
                 else if ($selectedShuttle[0]['status'] == 2) {
                     $value = "Check in";
-                    $status = "1";
+                    $status = "0";
                     $condition = "1";   
                     // TODO: Once maintenance bay is up and running, we'll add more steps
                     // $status = "3"; 

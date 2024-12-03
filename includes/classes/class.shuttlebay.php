@@ -123,6 +123,12 @@ class shuttlebay
         return $res;
     }
 
+    public function getShuttleLogs() {
+        $sql = "SELECT * FROM ecc_characters WHERE characterID = ;";
+        $res = $this->runQuery($sql);
+        return $res;
+    }
+
     public function checkPilotLicense($charID)
     {
         $stmt = <<<SQL

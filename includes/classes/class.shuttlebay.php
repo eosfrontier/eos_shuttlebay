@@ -10,6 +10,45 @@ class shuttlebay
 
         return $res;
     }
+
+    public function get_characters_upcoming_event()
+    {
+        $sql = <<<SQL
+        SELECT * FROM ecc_characters WHERE characterID IN (
+        SELECT SUBSTRING_INDEX(v1.field_value,' - ',-1)  as characterID from jml_eb_registrants r
+                    join joomla.jml_eb_field_values v1 on (v1.registrant_id = r.id and v1.field_id = 21)
+                    join jml_eb_field_values v5 on (v5.registrant_id = r.id and v5.field_id = 14)
+                    where v5.field_value = 'Speler' AND 
+                    r.event_id = (SELECT e.id from jml_eb_events e
+                            JOIN jml_eb_event_categories c ON (c.event_id = e.id)
+                            WHERE SUBSTRING_INDEX(event_end_date,' ',1) >= CURDATE() AND c.category_id = 1 ORDER BY SUBSTRING_INDEX(event_date,' ',1) ASC LIMIT 1) and ((r.published = 1 AND (r.payment_method = 'os_bancontact' OR r.payment_method = 'os_ideal' OR r.payment_method = 'os_paypal')) OR 
+                    (r.published in (0,1) AND r.payment_method = 'os_offline'))) ORDER by character_name
+        SQL;
+        $res = $this->runQuery($sql);
+        return $res;
+    }
+
+    public function getMissions()
+    {
+        $request = new HTTP_Request2();
+        $request->setUrl('https://api.eosfrontier.space/watchtower/missions/');
+        $request->setMethod(HTTP_Request2::METHOD_GET);
+        $request->setConfig(array(
+            'follow_redirects' => TRUE
+        ));
+        try {
+            $response = $request->send();
+            if ($response->getStatus() == 200) {
+                return $response->getBody();
+            } else {
+                return 'Unexpected HTTP status: ' . $response->getStatus() . ' ' .
+                    $response->getReasonPhrase();
+            }
+        } catch (HTTP_Request2_Exception $e) {
+            return 'Error: ' . $e->getMessage();
+        }
+    }
+
     public function getICDate()
     {
         $request = new HTTP_Request2();
@@ -72,6 +111,18 @@ class shuttlebay
         return $res;
     }
 
+    public function getCurrentShuttleMission($id) {
+        $sql = "SELECT * FROM esb_shuttle_log WHERE shuttleID = $id AND STATUS = 2 LIMIT 1;";
+        $res = $this->runQuery($sql);
+        return $res;
+    }
+
+    public function getCharacterByID($id) {
+        $sql = "SELECT * FROM ecc_characters WHERE characterID = $id;";
+        $res = $this->runQuery($sql);
+        return $res;
+    }
+
     public function checkPilotLicense($charID)
     {
         $stmt = <<<SQL
@@ -115,11 +166,9 @@ class shuttlebay
         $implant = $this->runQuery($stm2);
         if ($license != null) {
             return true;
-        }
-        else if ($implant != null ){
+        } else if ($implant != null) {
             return true;
-        }
-        else {
+        } else {
             return false;
         }
     }
@@ -152,9 +201,8 @@ class shuttlebay
             }
             if ($res == null) {
                 return "empty";
-            }
-            else {
-            return $res;
+            } else {
+                return $res;
             }
         }
     }
@@ -171,7 +219,8 @@ class shuttlebay
         $mission_name = $post["mission_name"];
         $mission_leader = $post["mission_leader"];
 
-        $stmt = db::$conn->prepare("INSERT INTO esb_shuttle_log (shuttleID, status, status_updated_by, ic_time, ic_date, comment, mission_name, mission_leader) VALUES (?, ?, ?, ?, ?, ?, ?, ?);");
+        $stmt = db::$conn->prepare("INSERT INTO esb_shuttle_log (shuttleID, status, status_updated_by, ic_time, ic_date, comment, mission_name, mission_leader) 
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?);");
         $stmt->execute(array($shuttleID, $status, $status_updated_by, $ic_time, $ic_date, $comment, $mission_name, $mission_leader));
 
         $stmt2 = db::$conn->prepare("UPDATE esb_shuttles SET status=$status WHERE id=$shuttleID;");
@@ -181,7 +230,7 @@ class shuttlebay
         return "success";
     }
 
-     // public function getById($post){
+    // public function getById($post){
     //     $stmt = db::$conn->prepare("SELECT * FROM ecc_characters WHERE characterID = ?");
     // 	$res = $stmt->execute(array($post));
     // 	$res = $stmt->fetch();
@@ -251,7 +300,7 @@ class shuttlebay
     //         , $char, $res);
     // }
 
-   
+
 
     // public function getAllPersonal(){
     //     $stmt = db::$conn->prepare("SELECT * FROM douane_logging LEFT JOIN ecc_characters ON douane_logging.character_id = ecc_characters.characterID WHERE id IN ( SELECT MAX(id) FROM douane_logging GROUP BY character_id ) AND access = 1 ORDER BY ecc_characters.faction ASC, ecc_characters.character_name");

@@ -8,11 +8,16 @@
                     }
                 else if ($selectedShuttle[0]['status'] == 2) {
                     $value = "Check in";
-                    $status = "2";
+                    $status = "1";
+                    $condition = "1";   
+                    // TODO: Once maintenance bay is up and running, we'll add more steps
+                    // $status = "3"; 
+                    // $condition = "3"; 
                     $success = "Checked in";
                 } elseif ($selectedShuttle[0]['status'] == 3) {
                     $value = "Mark Post-Flight Checks as complete";
-                    $status = "3";
+                    $status = "0";
+                    $condition = "1";
                     $success = "completed post-flight checks";
                 }
             }
@@ -30,6 +35,6 @@
                 ?>
                 </div>
                 <?php if (isset($_POST["selected_shuttle"])){
-                include("shuttle-checkout.php");
+                include("shuttle-checkinout.php");
                 } ?>
             </div>

@@ -1,58 +1,44 @@
 <?php
-function arrayToTable($array)
-{
-    echo '<table border="2">';
-    echo "<thead><tr>";
 
-    foreach (array_keys($array[0]) as $header) {
-        echo "<th>$header</th>";
-    }
-    echo "</tr></thead>";
-    echo "<tbody>";
-    foreach ($array as $items) {
-        echo "<tr>";
-        foreach ($items as $key => $value) {
-            echo "<td>$value</td>";
-        }
-    }
-    echo "</tbody></table>";
-}
 
-$readyShuttles=[];
-$prepShuttles=[];
-$onMissionShuttles=[];
-$inRepairShuttles=[];
-$missingShuttles=[];
-$inoperableShuttles=[];
+$readyShuttles = [];
+$prepShuttles = [];
+$onMissionShuttles = [];
+$inRepairShuttles = [];
+$missingShuttles = [];
+$inoperableShuttles = [];
 
-foreach ($shuttles as $shuttle){
-    if ($shuttle['operable'] = 1 || $shuttle['operable'] = 9){
-        if ($shuttle['status'] = "Ready"){
+foreach ($shuttles as $shuttle) {
+    if ($shuttle['operable'] = 1 || $shuttle['operable'] = 9) {
+        if ($shuttle['status_name'] == "Ready") {
             $readyShuttles[] = $shuttle;
         }
-        if ($shuttle['status'] = "Prep"){
+        if ($shuttle['status_name'] == "Prep") {
             $prepShuttles[] = $shuttle;
         }
-        if ($shuttle['status'] = "On Mission"){
+        if ($shuttle['status_name'] == "On Mission") {
             $onMissionShuttles[] = $shuttle;
         }
-        if ($shuttle['status'] = "Missing"){
+        if ($shuttle['status_name'] == "Missing") {
+            $missingShuttles[] = $shuttle;
+        }
+        if ($shuttle['status_name'] == "In-Repair") {
             $inRepairShuttles[] = $shuttle;
         }
-        if ($shuttle['status'] = "In-Repair"){
-            $onMissionShuttles[] = $shuttle;
-        }
-    }
-    else {
+    } else {
         $inoperableShuttles[] = $shuttle;
     }
 }
 
-echo "<h3>Available Shuttles</h3>";
-echo displayShuttles($readyShuttles);
-// echo "<pre>". print_r($shuttles, JSON_PRETTY_PRINT) ."</pre>";
+if (isset($_GET["operation"]) && ($_GET["operation"] == "checkout")) {
+    ?>
 
+    <h3>Available/Prepping Shuttles</h3>
+    <?php echo displayShuttles($readyShuttles); ?>
+    <?php echo displayShuttles($prepShuttles); ?>
+<?php }
+if (isset($_GET["operation"]) && $_GET["operation"] == "checkin") { ?>
 
-// echo arrayToTable($cShuttles->getAllShuttles());
-// echo $cShuttles->getICDate();
-// echo $ICDate;
+    <h3>Shuttles On-Mission</h3>
+    <?php echo displayShuttles($onMissionShuttles);
+} ?>

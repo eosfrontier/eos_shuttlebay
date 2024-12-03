@@ -9,6 +9,8 @@ spl_autoload_register(function($classname) {
     include 'classes/class.' . $classname . '.php';
 });
 
+require 'vendor/autoload.php';
+
 if (!function_exists('str_contains')) {
     /**
      * Check if substring is contained in string

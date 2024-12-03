@@ -13,10 +13,13 @@ function displayShuttles($array, $disabled = NULL){
         elseif ($shuttle['operable'] = -1){
             $buttonClass = "error";
         }
+        if ($disabled == NULL){
         ?>
         <form action="<?php echo $current_url; ?>" method="post">
-            <input type="hidden" name="id" value="<?php echo $_POST["id"]; ?>" />
+        <input type="hidden" name="id" value="<?php echo $_POST["id"]; ?>" />
+        <?php } ?>
         <button name="selected_shuttle" value="<?php echo $shuttle['id']; ?>" class='button--shuttle <?php echo $buttonClass; ?>' <?php if ($disabled == "disabled"){ echo "disabled style='pointer-events: none;'";} ?>>
+        
         <table>
             <tr>
         <?php

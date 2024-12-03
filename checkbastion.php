@@ -1,7 +1,6 @@
 <?php
     include('includes/include.php');
 
-    $cShuttlebay = new shuttlebay();
     $aPersonals = $cShuttlebay->getAllPersonal();
 
 ?>

@@ -36,7 +36,14 @@ body {
     letter-spacing: 0.04em;
 }
 
-input, textarea{
+input, textarea, select{
+    display: block;
+    font-size: 18px;
+    padding: 5px 10px;
+    border: solid 2px #fff;
+    background: #000;
+    color: #fff;
+    width: calc(100% - 14px);
     font-family: 'Orbitron', sans-serif;
     background-color: #000;
     color: white;
@@ -172,6 +179,8 @@ header nav ul li a i {
     border: solid 2px #fff;
     background: #000;
     color: #fff;
+    width: calc(100% - 350px);
+
 }
 
 .badge-scan:focus {
@@ -432,6 +441,11 @@ button.button--shuttle.good:hover {
     color:#000;
 }
 
+button.button--shuttle.warn:hover {
+    background-color:#f89e38;
+    color: black;
+}
+
 .button--secondary {
     background: var(--button-gray);
     border: solid 1px var(--text-color);
@@ -507,3 +521,59 @@ table.shuttle-status-board td:first-child {
 table.shuttle-button td {
     border-left: none;
 }
+
+/* Mission Colors */
+option.mission\.green {
+    color: green;
+}
+option.mission\.blue {
+    color: blue;
+}
+option.mission\.orange {
+    color: orange;
+}
+option.mission\.yellow {
+    color: yellow;
+}
+option.mission\.red {
+    color: red;
+}
+option.mission\.gray {
+    color: gray;
+}
+
+/* Multi-Select Dropdown */
+.selectBox select {
+    width: 100%;
+  }
+  
+  .overSelect {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+  }
+  
+  #mySelectOptions {
+    display: none;
+    border: 0.5px #7c7c7c solid;
+    background-color: #ffffff;
+    max-height: 150px;
+    overflow-y: scroll;
+  }
+  
+  #mySelectOptions label {
+    display: block;
+    font-weight: normal;
+    display: block;
+    white-space: nowrap;
+    min-height: 1.2em;
+    background-color: #ffffff00;
+    padding: 0 2.25rem 0 .75rem;
+    /* padding: .375rem 2.25rem .375rem .75rem; */
+  }
+  
+  #mySelectOptions label:hover {
+    background-color: #1e90ff;
+  }

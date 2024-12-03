@@ -29,17 +29,17 @@
             <nav>
                 <ul>
                     <li>
-                        <a href="checkout.php">
-                            <i class="fas fa-sign-in-alt"></i> Check-Out Shuttle
+                        <a href="checkinout.php">
+                            <i class="fas fa-sign-in-alt"></i> Check-In/Out Shuttle
                         </a>
                     </li>
-                    <li>
-                        <a href="checkin.php">
-                            <i class="fas fa-sign-in-alt"></i> Check-In Shuttle
+                    <!-- <li>
+                        <a href="maintenance.php">
+                            <i class="fas fa-sign-in-alt"></i> Maintenance Bay
                         </a>
-                    </li>
+                    </li> -->
                     <li>
-                        <a href="check.php">
+                        <a href="status.php">
                             <i class="fas fa-user-check"></i> Check Shuttle Status
                         </a>
                     </li>

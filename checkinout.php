@@ -5,15 +5,15 @@ include('includes/functions.php');
 
 
 $shuttles = $cShuttles->getAllShuttles();
+
 if(isset($_POST["selected_shuttle"])){
     $selectedShuttle = $cShuttles->getShuttle($_POST['selected_shuttle']);
     $sImage = "./images/shuttles/" . $selectedShuttle[0]['class_id'] . ".jpg";
 }
 $post = 0;
-$cShuttlebay = new shuttlebay();
 if (isset($_POST["id"])) {
     $sId = $_POST["id"];
-    $aRes = $cShuttlebay->getCharacter($sId);
+    $aRes = $cShuttles->getCharacter($sId);
     if ($aRes != "empty") {
         $post = 1;
     $pilotLicense = $cShuttles->checkPilotLicense($aRes["characterID"]);
@@ -29,8 +29,17 @@ include ('includes/inc.header.php');
 <div id="main">
     <div class="container">
         <?php if ($post == 0) {
+            if (isset($_GET["operation"])){
             include('partials/checkout-badgescanner.php');
          }
+         else {
+            ?>
+            <h1>Choose an operation</h1>
+<a href="checkinout.php?operation=checkout"><button name="operation" value="checkout" class='button--shuttle good' style="min-height:80px;"><h2>Check Out</h2></button></a>
+<a href="checkinout.php?operation=checkin"><button name="operation" value="checkin" class='button--shuttle warn' style="min-height:80px;"><h2>Check In</h2></button></a>
+<?php
+         }
+        }
          if ($post == 1) {
             include('partials/checkout-left.php');
         ?>
@@ -44,9 +53,6 @@ include ('includes/inc.header.php');
     </div>
 </div>
 </div>
-<?php
-include ('includes/inc.footer.php');
-?>
 <?php if ($post == 1) { ?>
     <script>
         function startTime() {
@@ -71,3 +77,4 @@ include ('includes/inc.footer.php');
 </body>
 
 </html>
+<?php include ('includes/inc.footer.php');?>

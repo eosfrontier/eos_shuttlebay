@@ -1,6 +1,6 @@
 <div class="welcome">
                 Please scan the identity badge.
-                <form action="./checkout.php" method="post">
+                <form action="./checkinout.php?operation=<?php echo $_GET["operation"]; ?>" method="post">
                     <input name="id" type="text" class="badge-scan" autofocus />
                     <?php
                     if (isset($aRes) && $aRes == "empty") {

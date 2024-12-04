@@ -49,9 +49,6 @@ include('includes/inc.header.php');
     </div>
 </div>
 </div>
-<?php if (isset($_POST)) { ?>
-    <script src="scripts/scripts.js"></script>
-<?php } ?>
 </body>
 
 </html>

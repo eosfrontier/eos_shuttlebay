@@ -27,3 +27,8 @@ if (!function_exists('str_contains')) {
 }
 $cShuttles = new shuttlebay();
 $ICDateString = $cShuttles->getICDate();
+
+
+function alert($msg) {
+    echo "<script type='text/javascript'>alert('$msg');</script>";
+}

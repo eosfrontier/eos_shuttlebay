@@ -20,12 +20,12 @@ $("form.checking-form input").keypress(function(e) {
     }
   });
 
-$(".checking-form").submit(function(e){
+$(".checkinout-form").submit(function(e){
     if(e.keyCode == 13) {
         e.preventDefault();
         return false;
       }
-    var form_data = $(".checking-form").serialize();
+    var form_data = $(".checkinout-form").serialize();
     formsubmit(form_data);
  
     function formsubmit(form_data){
@@ -35,7 +35,7 @@ $(".checking-form").submit(function(e){
        data : form_data
        }).done(function(response){
            if(response == "success"){
-               $(".checking-form").slideToggle();
+               $(".checkinout-form").slideToggle();
                $(".checking-success").slideToggle();
                setTimeout(function(){
                    window.location = document.URL;

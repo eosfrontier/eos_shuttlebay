@@ -6,7 +6,8 @@
     // switch($_POST["xf"]){
     //     case "checkout":
             $result = $cShuttles->checkInOut($_POST);
-            echo $result;
+            alert($result);
+
             // echo "<pre>". print_r($result) . "</pre>";
     //         break;
     //     case "checkin":

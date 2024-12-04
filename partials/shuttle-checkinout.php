@@ -3,7 +3,7 @@
 }
 ?>
 <div class="checkinout-form">
-    <form name="checkinout-form" id="checkinout-form" class="checkinout-form">
+    <form class="checkinout-form" method="post">
         <label>Current date</label><br />
         <input type="text" required name="ic_date" value="<?php echo $ICDateString; ?>" readonly="readonly" /><br />
         <label>Current time</label><br />
@@ -50,8 +50,8 @@
         <input type="hidden" name="status" value="<?php echo $status; ?>" /> <!--2 is the status id for on mission -->
         <input type="hidden" name="xf" value="<?php echo $_GET["operation"]; ?>" />
         <input type="submit" class="checkinout-button" value="<?php echo $value; ?>" />
+        <script src="scripts/clock.js"></script>
     </form>
-    <script src="scripts/clock.js"></script>
 </div>
 <div class="checking-success">
     <strong><?php echo $aRes["character_name"] ?> has been <?php echo $success; ?>.</strong><br />

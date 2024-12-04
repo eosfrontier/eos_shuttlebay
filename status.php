@@ -5,7 +5,7 @@ include ('includes/inc.header.php');
 
 $page = $_SERVER['PHP_SELF'];
 $sec = "5";
-header("Refresh: $sec; url=$page");
+// header("Refresh: $sec; url=$page");
 ?>
 <div id="main">
     <div class="container">

@@ -551,7 +551,15 @@ table.shuttle-status-board td:first-child {
 
 
 td.shuttle-button-right {
-    width: 70% !important;
+    width: 73% !important;
+}
+
+td.shuttle-button-left {
+    width: 27% !important;
+}
+
+table.shuttle-button {
+    font-size: 0.75rem;
 }
 
 table.shuttle-button td {

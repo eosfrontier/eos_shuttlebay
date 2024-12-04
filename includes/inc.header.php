@@ -20,6 +20,11 @@
         Here are the <a href="https://www.enablejavascript.io/">
             instructions how to enable JavaScript in your web browser</a>.
     </noscript>
+    <?php
+    $page = "/eos_shuttlebay/";
+    $sec = "300";
+    header("Refresh: $sec; url=$page");
+    ?>
 </head>
 
 <body>

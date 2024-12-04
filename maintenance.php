@@ -60,7 +60,7 @@ include ('includes/inc.header.php');
                 ?>
                 </div>
                 <?php if (isset($_POST["chosen_shuttle"])){ ?>
-                <form class="checking-form">
+                <form class="checkinout-form">
                     <label>Current date</label><br />
                     <input type="text" required name="date" value="<?php echo $ICDateString; ?>" readonly="readonly"/><br />
                     <label>Current time</label><br />

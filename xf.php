@@ -1,5 +1,7 @@
 <?php
     include('includes/include.php');
+    require 'vendor/autoload.php';
+
 
     // switch($_POST["xf"]){
     //     case "checkout":

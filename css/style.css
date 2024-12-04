@@ -336,9 +336,9 @@ div.tooltip {
     margin-right: 50px;
 }
 
-/* .checking-form{} */
+/* .checkinout-form{} */
 
-.checking-form input,
+.checkinout-form input,
 .input-pretty {
     display: block;
     font-size: 20px;
@@ -349,8 +349,8 @@ div.tooltip {
     width: calc(100% - 24px);
 }
 
-.checking-form input:focus,
-.checking-form textarea:focus,
+.checkinout-form input:focus,
+.checkinout-form textarea:focus,
 .input-pretty:focus,
 .textarea-pretty:focus {
     border: solid 2px #ff8a00;
@@ -368,7 +368,7 @@ div.tooltip {
 }
 
 
-.checking-form textarea {
+.checkinout-form textarea {
     display: block;
     font-size: 16px;
     padding: 5px 10px;

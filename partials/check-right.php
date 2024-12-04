@@ -15,7 +15,7 @@
                                     <?php } ?>
                     <h4>Pilot's License: <?php 
                     if ($pilotLicense){
-                        echo '<font style="color:green;">VALID</font>';
+                        echo '<font style="color:white;background-color:green;">VALID</font>';
                     }
                     else {
                         echo '<font style="color:red;">NO LICENSE FOUND</font>';

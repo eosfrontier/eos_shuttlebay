@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
 
@@ -14,41 +15,47 @@
     <!--[if lt IE 9]>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
     <![endif]-->
+    <noscript>
+        For full functionality of this site it is necessary to enable JavaScript.
+        Here are the <a href="https://www.enablejavascript.io/">
+            instructions how to enable JavaScript in your web browser</a>.
+    </noscript>
 </head>
+
 <body>
-<div id="moving-background"></div>
-<div class="background">
-    <img class="icc-logo" src="images/logos/icc.png" />
-    <header>
-        <div class="container">
-            <h1>
-                <a href="./">
-                    Bastion Eos: Shuttlebay
-                </a>
-            </h1>
-            <nav>
-                <ul>
-                    <li>
-                        <a href="checkinout.php">
-                            <i class="fas fa-sign-in-alt"></i> Check-In/Out Shuttle
-                        </a>
-                    </li>
-                    <!-- <li>
+    <div id="moving-background"></div>
+    <div class="background">
+        <img class="icc-logo" src="images/logos/icc.png" />
+        <header>
+            <div class="container">
+                <h1>
+                    <a href="./">
+                        Bastion Eos: Shuttlebay
+                    </a>
+                </h1>
+                <nav>
+                    <ul>
+                        <li>
+                            <a href="checkinout.php">
+                                <i class="fas fa-sign-in-alt"></i> Check-In/Out Shuttle
+                            </a>
+                        </li>
+                        <!-- <li>
                         <a href="maintenance.php">
                             <i class="fas fa-sign-in-alt"></i> Maintenance Bay
                         </a>
                     </li> -->
-                    <li>
-                        <a href="status.php">
-                            <i class="fas fa-user-check"></i> Check Shuttle Status
-                        </a>
-                    </li>
-                    <li>
-                        <a href="shuttle_logs.php">
-                            <i class="fas fa-book"></i> Check Shuttle Logs
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+                        <li>
+                            <a href="status.php">
+                                <i class="fas fa-user-check"></i> Check Shuttle Status
+                            </a>
+                        </li>
+                        <li>
+                            <a href="shuttle_logs.php">
+                                <i class="fas fa-book"></i> Check Shuttle Logs
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </header>

@@ -13,7 +13,7 @@ $(window).resize(function(){
     resizeMoving();
 })
 
-$("form.checking-form input").keypress(function(e) {
+$("form.checkinout-form input").keypress(function(e) {
     //Enter key
     if (e.which == 13) {
       return false;
@@ -46,26 +46,4 @@ $(".checkinout-form").submit(function(e){
     }
 })
 
-$(".character-edit-form").submit(function(event){
-   event.preventDefault();
-   var form_data = $(".character-edit-form").serialize();
-   formsubmit(form_data);
-
-   function formsubmit(form_data){
-      $.ajax({
-      url : "xf.php",
-      type: "post",
-      data : form_data
-      }).done(function(response){
-          if(response == "success"){
-              $(".character-edit-form").slideToggle();
-              $(".checking-success").slideToggle();
-              setTimeout(function(){
-                  window.location = "./check.php";
-              }, 3000)
-          }
-      });
-   }
-
-})
 

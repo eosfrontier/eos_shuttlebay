@@ -2,8 +2,7 @@
     $currentMission = $cShuttles->getCurrentShuttleMission($_POST["selected_shuttle"]);
 }
 ?>
-<div class="checkinout-form">
-    <form class="checkinout-form" method="post">
+    <form class="checkinout-form">
         <label>Current date</label><br />
         <input type="text" required name="ic_date" value="<?php echo $ICDateString; ?>" readonly="readonly" /><br />
         <label>Current time</label><br />
@@ -52,7 +51,6 @@
         <input type="submit" class="checkinout-button" value="<?php echo $value; ?>" />
         <script src="scripts/clock.js"></script>
     </form>
-</div>
 <div class="checking-success">
     <strong><?php echo $aRes["character_name"] ?> has been <?php echo $success; ?>.</strong><br />
     Returning to scanner in 3 seconds.

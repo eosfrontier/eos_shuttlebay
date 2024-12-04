@@ -36,18 +36,18 @@ foreach ($shuttles as $shuttle){
     <tr>
     <td>
     <h3>Available/Prepping Shuttles</h3>
-        <?php echo displayShuttles($readyShuttles, 'disabled'); ?>
-        <?php echo displayShuttles($prepShuttles, 'disabled'); ?>
+        <?php echo $cShuttles->displayShuttles($readyShuttles, 'disabled'); ?>
+        <?php echo $cShuttles->displayShuttles($prepShuttles, 'disabled'); ?>
     </td>
     <td>
     <h3>Shuttles On-Mission</h3>
-        <?php echo displayShuttles($onMissionShuttles, 'disabled'); ?>
+        <?php echo $cShuttles->displayShuttles($onMissionShuttles, 'disabled'); ?>
     </td>
     <td>
     <h3>Unavailable Shuttles</h3>
-        <?php echo displayShuttles($inRepairShuttles, 'disabled'); ?>
-        <?php echo displayShuttles($missingShuttles, 'disabled'); ?>
-        <?php echo displayShuttles($inoperableShuttles, 'disabled'); ?>
+        <?php echo $cShuttles->displayShuttles($inRepairShuttles, 'disabled'); ?>
+        <?php echo $cShuttles->displayShuttles($missingShuttles, 'disabled'); ?>
+        <?php echo $cShuttles->displayShuttles($inoperableShuttles, 'disabled'); ?>
     </td>
     </tr>
 </table>

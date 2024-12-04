@@ -13,7 +13,7 @@
                     // TODO: Once maintenance bay is up and running, we'll add more steps
                     // $status = "3"; 
                     // $condition = "3"; 
-                    $success = "Checked in";
+                    $success = "checked in shuttle successfully.";
                 } elseif ($selectedShuttle[0]['status'] == 3) {
                     $value = "Mark Post-Flight Checks as complete";
                     $status = "0";

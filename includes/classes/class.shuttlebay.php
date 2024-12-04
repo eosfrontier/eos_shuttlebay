@@ -111,19 +111,22 @@ class shuttlebay
         return $res;
     }
 
-    public function getCurrentShuttleMission($id) {
+    public function getCurrentShuttleMission($id)
+    {
         $sql = "SELECT * FROM esb_shuttle_log WHERE shuttleID = $id AND STATUS = 2 LIMIT 1;";
         $res = $this->runQuery($sql);
         return $res;
     }
 
-    public function getCharacterByID($id) {
+    public function getCharacterByID($id)
+    {
         $sql = "SELECT * FROM ecc_characters WHERE characterID = $id;";
         $res = $this->runQuery($sql);
         return $res;
     }
 
-    public function getShuttleLogs() {
+    public function getShuttleLogs()
+    {
         $sql = <<<SQL
         SELECT s.name as shuttle_name, stat.`status`, l.comment, l.ic_date, l.ic_time, cs.character_name as status_updated_by, l.mission_name, cl.character_name as mission_leader FROM esb_shuttle_log l
         JOIN esb_shuttles s ON s.id = l.shuttleID
@@ -220,7 +223,7 @@ class shuttlebay
         }
     }
 
-    public function checkOut($post)
+    public function checkInOut($post)
     {
         //return $post;
         $shuttleID = $post["shuttleID"];
@@ -243,101 +246,52 @@ class shuttlebay
         return "success";
     }
 
-    // public function getById($post){
-    //     $stmt = db::$conn->prepare("SELECT * FROM ecc_characters WHERE characterID = ?");
-    // 	$res = $stmt->execute(array($post));
-    // 	$res = $stmt->fetch();
+    public function displayShuttles($array, $disabled = NULL)
+    {
 
-    //     return $res;
-    // }
+        $current_url = $_SERVER['REQUEST_URI'];
+        foreach ($array as $shuttle) {
+            if ($shuttle['operable'] = 1) {
+                $buttonClass = "good";
+            } elseif ($shuttle['operable'] = 0) {
+                $buttonClass = "warn";
+            } elseif ($shuttle['operable'] = -1) {
+                $buttonClass = "error";
+            }
+            if ($disabled == NULL) {
+                ?>
+                <form action="<?php echo $current_url; ?>" method="post">
+                    <input type="hidden" name="id" value="<?php echo $_POST["id"]; ?>" />
+                <?php } ?>
+                <button name="selected_shuttle" value="<?php echo $shuttle['id']; ?>"
+                    class='button--shuttle <?php echo $buttonClass; ?>' <?php if ($disabled == "disabled") {
+                           echo "disabled style='pointer-events: none;'";
+                       } ?>>
 
-    // public function getByScan($post){
-    //     $stmt = db::$conn->prepare("SELECT * FROM ecc_characters WHERE ICC_number = ?");
-    // 	$res = $stmt->execute(array($post));
-    // 	$res = $stmt->fetch();
-
-    //     if($res == null){
-    //         $stmt = db::$conn->prepare("SELECT * FROM ecc_characters WHERE card_id = ?");
-    //         $res = $stmt->execute(array($post));
-    // 		$res = $stmt->fetch();
-    //     }
-
-    //     if($res == null){
-    //         $sHex = dechex($post);
-    //         $aDec = str_split($sHex, 2);
-    //         $sDec = "%".$aDec[3].$aDec[2].$aDec[1].$aDec[0]."%";
-
-    //         $stmt = db::$conn->prepare("SELECT * FROM ecc_characters WHERE card_id LIKE ?");
-    //         $res = $stmt->execute(array($sDec));
-    // 		$res = $stmt->fetch();
-
-    //         //return $sDec;
-    //     }
-
-    //     if($res == null){
-    //         return "false";
-    //     }
-
-    //     return $res;
-    // }
-
-    // public function getEditById($post){
-    //     $stmt = db::$conn->prepare("SELECT * FROM ecc_characters WHERE characterID = ?");
-    // 	$res = $stmt->execute(array($post));
-    // 	$res = $stmt->fetch();
-
-    //     $char = $res;
-
-    //     $id = $res["characterID"];
-
-    //     $stmt = db::$conn->prepare("SELECT * FROM douane_logging WHERE character_id = ? ORDER BY id DESC");
-    //     $res = $stmt->execute(array($id));
-    //     $res = $stmt->fetchAll();
-
-    //     if($res == false){
-    //         $return = array(
-    //             array(
-    //                 "returning" => "empty",
-    //                 "access" => 0)
-    //             , $char);
-    //         return $return;
-    //     }
-
-    //     $first = $res[0];
-    //     $lastAccess = $first["access"];
-
-    //     return array(
-    //         array(
-    //             "returning" => "exist",
-    //             "access" => $lastAccess)
-    //         , $char, $res);
-    // }
-
-
-
-    // public function getAllPersonal(){
-    //     $stmt = db::$conn->prepare("SELECT * FROM douane_logging LEFT JOIN ecc_characters ON douane_logging.character_id = ecc_characters.characterID WHERE id IN ( SELECT MAX(id) FROM douane_logging GROUP BY character_id ) AND access = 1 ORDER BY ecc_characters.faction ASC, ecc_characters.character_name");
-    //     $res = $stmt->execute();
-    //     $res = $stmt->fetchAll();
-    //     return $res;
-    // }
-
-    // public function editCharacter($post){
-    //     $douane_notes = $_POST["douane_notes"];
-    //     $douane_disposition = $_POST["douane_disposition"];
-    //     $threat_assessment = $_POST["threat_assessment"];
-    //     $bastion_clearance = $_POST["bastion_clearance"];
-    //     $rank = $_POST["rank"];
-    //     $characterID = $_POST["characterID"];
-
-    //     $sql = "update ecc_characters SET douane_disposition=?, douane_notes=?, threat_assessment=?, bastion_clearance=?, rank=? WHERE characterID=?";
-    //     $stmt = db::$conn->prepare($sql);
-    //     $result = $stmt->execute([$douane_disposition, $douane_notes, $threat_assessment, $bastion_clearance, $rank, $characterID]);
-
-    //     if($result != false){
-    //         return "success";
-    //     }
-    // }
+                    <table>
+                        <tr>
+                            <?php
+                            echo "<h3>" . $shuttle['serial_number'] . ": " . $shuttle['name'] . "</h3>";
+                            echo "<td><strong>Class:<br>
+            Type:<br>
+            Cap:<br>
+            Home Base:<br>
+            Status:</strong></td>
+            <td>";
+                            echo $shuttle['class'] . "<br>";
+                            echo $shuttle['type'] . "<br>";
+                            echo $shuttle['capacity'] . "👤<br>";
+                            echo $shuttle['base'] . "<br>";
+                            echo $shuttle['status_name'] . "<br>";
+                            ?>
+                            </td>
+                        </tr>
+                    </table>
+                </button>
+                </br>
+                <?php
+        }
+    }
 
 }
 

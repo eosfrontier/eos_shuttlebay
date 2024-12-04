@@ -58,7 +58,7 @@
             ?>
             </td>
             <td>
-                <?php displayShuttles($selectedShuttle, 'disabled'); ?>
+                <?php $cShuttles->displayShuttles($selectedShuttle, 'disabled'); ?>
             </td>
         </tr>
     </table>

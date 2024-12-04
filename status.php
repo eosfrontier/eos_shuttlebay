@@ -2,7 +2,7 @@
 require 'vendor/autoload.php';
 include ('includes/include.php');
 include ('includes/inc.header.php');
-include ('includes/functions.php');
+
 $page = $_SERVER['PHP_SELF'];
 $sec = "5";
 header("Refresh: $sec; url=$page");

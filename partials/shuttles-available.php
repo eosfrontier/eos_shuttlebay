@@ -34,11 +34,11 @@ if (isset($_GET["operation"]) && ($_GET["operation"] == "checkout")) {
     ?>
 
     <h3>Available/Prepping Shuttles</h3>
-    <?php echo displayShuttles($readyShuttles); ?>
-    <?php echo displayShuttles($prepShuttles); ?>
+    <?php echo $cShuttles->displayShuttles($readyShuttles); ?>
+    <?php echo $cShuttles->displayShuttles($prepShuttles); ?>
 <?php }
 if (isset($_GET["operation"]) && $_GET["operation"] == "checkin") { ?>
 
     <h3>Shuttles On-Mission</h3>
-    <?php echo displayShuttles($onMissionShuttles);
+    <?php echo $cShuttles->displayShuttles($onMissionShuttles);
 } ?>

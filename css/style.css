@@ -517,14 +517,20 @@ input[type=checkbox]+label:before {
 table.shuttle-status-board {
     border: none;
     border-collapse: collapse;
+    width: 100%;
 }
 table.shuttle-status-board td {
     border-left: 1px solid #fff;
     vertical-align: top;
     padding: 10px;
+    width: 33%;
 }
 table.shuttle-status-board td:first-child {
     border-left: none;
+}
+
+td.shuttle-button-right {
+    width: 70% !important;
 }
 
 table.shuttle-button td {

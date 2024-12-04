@@ -268,16 +268,16 @@ class shuttlebay
                            echo "disabled style='pointer-events: none;'";
                        } ?>>
 
-                    <table>
+                    <table class="shuttle-button">
                         <tr>
                             <?php
                             echo "<h3>" . $shuttle['serial_number'] . ": " . $shuttle['name'] . "</h3>";
-                            echo "<td><strong>Class:<br>
+                            echo "<td class='shuttle-button-left'><strong>Class:<br>
             Type:<br>
             Cap:<br>
             Home Base:<br>
             Status:</strong></td>
-            <td>";
+            <td class='shuttle-button-right'>";
                             echo $shuttle['class'] . "<br>";
                             echo $shuttle['type'] . "<br>";
                             echo $shuttle['capacity'] . "👤<br>";

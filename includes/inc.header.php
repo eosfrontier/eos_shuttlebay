@@ -35,24 +35,27 @@
                 </h1>
                 <nav>
                     <ul>
-                        <li>
-                            <a href="checkinout.php">
+                        <a href="checkinout.php">
+                            <button class="nav-button">
                                 <i class="fas fa-sign-in-alt"></i> Check-In/Out Shuttle
-                            </a>
-                        </li>
-                        <!-- <li>
-                        <a href="maintenance.php">
-                            <i class="fas fa-sign-in-alt"></i> Maintenance Bay
+                            </button>
                         </a>
-                    </li> -->
-                        <li>
-                            <a href="status.php">
+                        <!-- <a href="maintenance.php">
+                            <button class="nav-button">
+                                <i class="fas fa-sign-in-alt"></i> Maintenance Bay
+                            </button>
+                        </a> -->
+                        <a href="status.php">
+                            <button class="nav-button">
                                 <i class="fas fa-user-check"></i> Check Shuttle Status
-                            </a>
-                        </li>
-                        <li>
-                            <a href="shuttle_logs.php">
+                            </button>
+                        </a>
+                        <a href="shuttle_logs.php">
+                            <button class="nav-button">
                                 <i class="fas fa-book"></i> Check Shuttle Logs
+                            </button>
+                        </a>
+                        <li class="nav-button">
                             </a>
                         </li>
                     </ul>

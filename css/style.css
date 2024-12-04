@@ -241,6 +241,15 @@ img.faction-logo {
     font-size: 20px;
     float: left;
     width: calc(100% - 330px);
+    background: rgb(1 4 1 / 64%);
+}
+
+.shuttle-logs {
+    background: rgb(1 4 1 / 64%);
+}
+
+.shuttle-logs td {
+    text-align: center;
 }
 
 .check-subtitle {

@@ -10,7 +10,7 @@ include('includes/inc.header.php');
 ?>
 <div id="main">
     <div class="container">
-        <table width="100%">
+        <table width="100%" class="shuttle-logs">
             <thead>
                 <th>
                     <strong>Date</strong>

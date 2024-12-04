@@ -22,10 +22,9 @@
         <input type="text" required name="mission_name" value="<?php echo $currentMission[0]["mission_name"]; ?>"
             readonly="readonly" /><br />
     <?php } ?>
-    <label>Mission Leader</label><br />
     <?php if ($_GET["operation"] == "checkout") { ?>
         <label for="mission_leader">Mission Leader</label>
-        <input list="mission_leaders" id="mission_leader">
+        <input list="mission_leaders" id="mission_leader" onchange="resetIfInvalid(this);">
         <datalist id="mission_leaders">
             <?php
             $characters = $cShuttles->get_characters_upcoming_event();
@@ -37,6 +36,7 @@
         </datalist>
         <input type="hidden" name="mission_leader" id="mission_leader-hidden">
     <?php } else {
+        echo "<label>Mission Leader</label><br />";
         $missionLeader = $cShuttles->getCharacterByID($currentMission[0]["mission_leader"]);
         ?>
         <input type="text" required name="mission_leader" value="<?php echo $missionLeader[0]["character_name"]; ?>"

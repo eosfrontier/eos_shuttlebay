@@ -54,6 +54,6 @@
     <script src="scripts/clock.js"></script>
 </form>
 <div class="checking-success">
-    <strong><?php echo $aRes["character_name"] ?> has been <?php echo $success; ?>.</strong><br />
+    <strong><?php echo $aRes["character_name"] ?> <?php echo $success; ?>.</strong><br />
     Returning to scanner in 3 seconds.
 </div>

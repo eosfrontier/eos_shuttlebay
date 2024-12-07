@@ -58,29 +58,25 @@ $("form.checkinout-form input").keypress(function (e) {
   }
 });
 
-$(".checkinout-form").submit(function (e) {
-  if (e.keyCode == 13) {
-    e.preventDefault();
-    return false;
-  }
+$(".checkinout-form").submit(function(e){
+  e.preventDefault();
   var form_data = $(".checkinout-form").serialize();
   formsubmit(form_data);
 
-  function formsubmit(form_data) {
-    $.ajax({
-      url: "xf.php",
-      type: "post",
-      data: form_data
-    }).done(function (response) {
-      if (response == "success") {
-        $(".checkinout-form").slideToggle();
-        $(".checking-success").slideToggle();
-        setTimeout(function () {
-          console.log('potato');
-          window.location = document.URL;
-        }, 3000)
-      }
-    });
+  function formsubmit(form_data){
+     $.ajax({
+     url : "xf.php",
+     type: "post",
+     data : form_data
+     }).done(function(response){
+         if(response == "success"){
+             $(".checkinout-form").slideToggle();
+             $(".checking-success").slideToggle();
+             setTimeout(function(){
+                 window.location = '/eos_shuttlebay';
+             }, 3000)
+         }
+     });
   }
 })
 

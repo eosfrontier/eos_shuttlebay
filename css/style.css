@@ -1,0 +1,623 @@
+:root {
+    --background: #262e3e;
+    --text-color: #ccd1dd;
+    --dark-gray: #323846;
+    --light-gray: rgb(44, 52, 69);
+    --gray: #424959;
+    --button-gray: #3b414e;
+    --button-gray-hover: #424959;
+    --button-green: #008A0E;
+    --button-green-hover: #00A310;
+}
+
+input[type="submit"] {
+    white-space: normal;
+    width: 100px;
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+html {
+    min-height: 100%;
+}
+
+body {
+    margin: 0px;
+    padding: 0px;
+    min-height: 100%;
+    background: #000;
+    overflow-x: hidden;
+    color: #fff;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: normal;
+    letter-spacing: 0.04em;
+}
+
+input, textarea, select{
+    display: block;
+    font-size: 18px;
+    padding: 5px 10px;
+    border: solid 2px #fff;
+    background: #000;
+    color: #fff;
+    width: calc(100% - 14px);
+    font-family: 'Orbitron', sans-serif;
+    background-color: #000;
+    color: white;
+}
+
+#moving-background {
+    position: absolute;
+    width: 150px;
+    left: -150px;
+    top: 0px;
+    bottom: 0px;
+    background: #39dbcc;
+    animation: mymove 5s infinite;
+}
+
+@keyframes mymove {
+    0% {
+        opacity: 1;
+        left: -200px;
+    }
+
+    98% {
+        left: calc(100% + 200px);
+        opacity: 0;
+    }
+
+    99% {
+        opacity: 0;
+        left: -200px;
+    }
+
+    100% {
+        left: -200px;
+        opacity: 0;
+    }
+}
+
+.background {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    width: 100%;
+    min-height: 100%;
+    background: url(../images/bg.png) repeat;
+    line-height: 2em;
+}
+
+.container {
+    width: 1280px;
+    margin: 0 auto;
+}
+
+a {
+    color: #fff;
+    text-decoration: none;
+    transition: all 0.2s linear;
+}
+
+a:hover {
+    color: #ff8a00;
+}
+
+.red {
+    color: #f00;
+    font-weight: bold;
+}
+
+textarea:focus,
+input:focus {
+    outline: none;
+}
+
+.icc-logo {
+    height: 80px;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+}
+
+.clear {
+    clear: both;
+}
+
+/*-- HEADER --*/
+
+header {
+    padding: 10px 0;
+    margin-bottom: 10px;
+}
+
+header h1 {
+    margin-bottom: 20px;
+}
+
+
+
+/* header nav{} */
+
+header nav ul {
+    list-style: none;
+}
+
+header nav ul li {
+    display: inline-block;
+    margin-right: 25px;
+}
+
+/* header nav ul li a{} */
+
+header nav ul li a:hover {
+    color: #ff8a00;
+}
+
+header nav ul li a i {
+    margin-right: 5px;
+}
+
+/*-- HOME --*/
+
+.welcome {
+    font-size: 22px;
+}
+
+/*-- BADGE --*/
+
+.badge-scan {
+    display: block;
+    font-size: 20px;
+    padding: 5px 20px;
+    text-align: center;
+    margin-top: 5px;
+    border: solid 2px #fff;
+    background: #000;
+    color: #fff;
+    width: calc(100% - 350px);
+
+}
+
+.badge-scan:focus {
+    border: solid 2px #ff8a00;
+}
+
+/*-- CHECK --*/
+
+.check-warning {
+    font-size: 30px;
+    font-weight: 900;
+    margin-bottom: 30px;
+    color: #f00001;
+}
+
+.check-name {
+    font-weight: bold;
+    font-size: 40px;
+    margin-bottom: 30px;
+    line-height: 46px;
+}
+
+.check-image {
+    float: left;
+    width: 300px;
+    display: grid;
+    justify-content: right;
+    align-content: center;
+    justify-items: center;
+}
+
+.check-image img {
+    width: 100%;
+}
+
+img.portrait {
+    max-height: 200px;
+    width: auto;
+    border: solid 2px #fff;
+    /* align-items: center; */
+}
+
+img.ship-image {
+    max-height: 118px;
+    width: auto;
+    border: solid 2px #fff;
+    /* align-items: center; */
+}
+
+img.faction-logo {
+    max-height: 200px;
+    width: auto;
+    display: block;
+    align-items: center;
+}
+
+.check-right {
+    font-size: 20px;
+    float: left;
+    width: calc(100% - 330px);
+    background: rgb(1 4 1 / 64%);
+}
+
+.shuttle-logs {
+    background: rgb(1 4 1 / 64%);
+}
+
+.shuttle-logs td {
+    text-align: center;
+}
+
+.check-subtitle {
+    font-weight: bold;
+    display: block;
+}
+
+.check-faction {
+    text-transform: capitalize;
+    margin-bottom: 20px;
+}
+
+.check-faction.small {
+    float: left;
+    margin-right: 60px;
+}
+
+/* .travel-line{
+
+} */
+
+.travel-line div {
+    display: inline-block;
+}
+
+.travel-line-faction {
+    text-transform: capitalize;
+}
+
+.name-submit {
+    border: 0px;
+    font-size: 16px;
+    background: none;
+    color: #fff;
+    cursor: pointer;
+    margin: 0px;
+    padding: 0px;
+    transition: all 0.2s linear;
+}
+
+.name-submit:hover {
+    color: #ff8a00;
+}
+
+.travel-line i {
+    position: relative;
+}
+
+div.tooltip {
+    background: #000;
+    padding: 10px;
+    border: solid 2px #fff;
+    color: #fff;
+    font-family: 'Orbitron', sans-serif;
+    width: 300px;
+    font-size: 16px;
+    position: absolute;
+    left: -320px;
+    bottom: 20px;
+    display: none;
+    font-weight: normal;
+}
+
+.travel-line i:hover div.tooltip {
+    display: block;
+}
+
+.checking-table {
+    font-size: 14px;
+}
+
+.edit-submit {
+    color: #fff;
+    background: #000;
+    border: solid 2px #fff;
+    font-size: 23px;
+    border-radius: 5px;
+    padding: 3px 10px;
+    cursor: pointer;
+    transition: all 0.2s linear;
+}
+
+.edit-submit:hover {
+    border: solid 2px #ff8a00;
+    color: #ff8a00;
+}
+
+/*-- CHECK IN/OUT --*/
+
+.checkinout-left {
+    float: left;
+    width: 300px;
+    margin-right: 50px;
+}
+
+/* .checkinout-form{} */
+
+.checkinout-form input,
+.input-pretty {
+    display: block;
+    font-size: 20px;
+    padding: 5px 10px;
+    border: solid 2px #fff;
+    background: #000;
+    color: #fff;
+    width: calc(100% - 24px);
+}
+
+.checkinout-form input:focus,
+.checkinout-form textarea:focus,
+.input-pretty:focus,
+.textarea-pretty:focus {
+    border: solid 2px #ff8a00;
+}
+
+.textarea-pretty {
+    display: block;
+    font-size: 20px;
+    padding: 5px 10px;
+    border: solid 2px #fff;
+    background: #000;
+    color: #fff;
+    width: calc(100% - 24px);
+    height: 100px;
+}
+
+
+.checkinout-form textarea {
+    display: block;
+    font-size: 16px;
+    padding: 5px 10px;
+    border: solid 2px #fff;
+    background: #000;
+    color: #fff;
+    width: calc(100% - 24px);
+    height: 70px;
+}
+
+.checkinout-button {
+    transition: all 0.2s linear;
+}
+
+.checkinout-button:hover {
+    border: solid 2px #ff8a00;
+    color: #ff8a00;
+    cursor: pointer;
+}
+
+.button  {
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 0.75rem 1.75rem;
+    transition: 0.4s;
+    margin-bottom: 0.5rem;
+    border: 0;
+    color: var(--text-color);
+    /* font-size: 1.75rem; */
+    font-family: 'roboto-regular', sans-serif, arial;
+    background-color: #386ae8;
+    /* Chargen button blue */
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.button--shuttle {
+    color:#fff;
+    font-family:orbitron;
+    text-align: left;
+    border:#ccd1dd;
+    border-width: 2px;
+    min-width: 400px;
+    padding: 5px;
+    border-radius: 10px;
+    margin:2px;
+}
+
+button.nav-button {
+    color: #fff;
+    font-family: orbitron;
+    font-size: medium;
+    text-align: left;
+    border: #ccd1dd;
+    border-width: 2px;
+    min-width: 400px;
+    padding: 5px;
+    border-radius: 10px;
+    margin: 2px;
+    height: 45px;
+    background-color: rgba(60, 230, 60, 0.46);
+}
+
+button.nav-button:hover {
+    background-color: #9bd5a1;
+    color:#000;
+}
+button.button--shuttle.good {
+    background-color: #00A310;
+}
+
+button.button--shuttle.warn {
+    background-color:#ff8a00;
+    color: black;
+}
+
+button.button--shuttle.error {
+    background-color:#f00001;
+    color: black;
+}
+
+button.button--shuttle.good:hover {
+    background-color: #9bd5a1;
+    color:#000;
+}
+
+button.button--shuttle.warn:hover {
+    background-color:#f89e38;
+    color: black;
+}
+
+.button--secondary {
+    background: var(--button-gray);
+    border: solid 1px var(--text-color);
+}
+
+.button--secondary:hover {
+    background: var(--button-gray-hover);
+}
+
+.checking-success {
+    font-size: 22px;
+    display: none;
+}
+
+.checkinout-right {
+    float: left;
+    width: calc(100% - 350px);
+}
+
+
+/* COMMON RADIO AND CHECKBOX STYLES  */
+label {
+    cursor: pointer;
+}
+
+input[type=radio],
+input[type=checkbox] {
+    /* Hide original inputs */
+    visibility: hidden;
+    position: absolute;
+}
+
+input[type=radio]+label:before,
+input[type=checkbox]+label:before {
+    height: 12px;
+    width: 12px;
+    margin-right: 7px;
+    content: " ";
+    display: inline-block;
+    vertical-align: baseline;
+    border: 2px solid #fff;
+    background: #000;
+    cursor: pointer;
+}
+
+input[type=radio]:checked+label:before,
+input[type=checkbox]:checked+label:before {
+    background: #ff8a00;
+}
+
+/* CUSTOM RADIO AND CHECKBOX STYLES */
+input[type=radio]+label:before {
+    border-radius: 50%;
+}
+
+input[type=checkbox]+label:before {
+    border-radius: 2px;
+}
+
+table.shuttle-status-board {
+    border: none;
+    border-collapse: collapse;
+    width: 100%;
+    background: rgb(1 4 1 / 64%);
+}
+table.shuttle-status-board td {
+    border-left: 1px solid #fff;
+    vertical-align: top;
+    padding: 10px;
+    width: 33%;
+}
+table.shuttle-status-board td:first-child {
+    border-left: none;
+}
+
+
+td.shuttle-button-right {
+    width: 73% !important;
+}
+
+td.shuttle-button-left {
+    width: 27% !important;
+}
+
+table.shuttle-button {
+    font-size: 0.75rem;
+}
+
+table.shuttle-button td {
+    border-left: none;
+}
+
+/* Mission Colors */
+option.mission\.green {
+    color: green;
+}
+option.mission\.blue {
+    color: blue;
+}
+option.mission\.orange {
+    color: orange;
+}
+option.mission\.yellow {
+    color: yellow;
+}
+option.mission\.red {
+    color: red;
+}
+option.mission\.gray {
+    color: gray;
+}
+
+/* Multi-Select Dropdown */
+.selectBox select {
+    width: 100%;
+  }
+  
+  .overSelect {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+  }
+  
+  #mySelectOptions {
+    display: none;
+    border: 0.5px #7c7c7c solid;
+    background-color: #ffffff;
+    max-height: 150px;
+    overflow-y: scroll;
+  }
+  
+  #mySelectOptions label {
+    display: block;
+    font-weight: normal;
+    display: block;
+    white-space: nowrap;
+    min-height: 1.2em;
+    background-color: #ffffff00;
+    padding: 0 2.25rem 0 .75rem;
+    /* padding: .375rem 2.25rem .375rem .75rem; */
+  }
+  
+  #mySelectOptions label:hover {
+    background-color: #1e90ff;
+  }

@@ -1,0 +1,7 @@
+<?php
+class db {
+    public static $conn;
+}
+
+  db::$conn = new PDO('mysql:host=HOST;dbname=DBNAME;charset=utf8mb4', 'USER', 'PASSWORD');
+?>
